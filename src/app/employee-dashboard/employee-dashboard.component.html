@@ -1,0 +1,33 @@
+<div class="container">
+    <form *ngIf="!isAuthenticated" (ngSubmit)="onLogin()" #loginForm="ngForm">
+        <h3>Login</h3>
+    
+      <div class="form-group">
+        <label for="employeeName">employee name</label>
+        <input type="text" class="form-control" id="employeeName" [(ngModel)]="employeeName" name="employeeName" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
+    </form>
+  </div>
+
+  
+  <div *ngIf="isAuthenticated" class="container mt-4">
+    <div>
+      <h4>Quarterly Performance Score</h4>
+      {{ performanceScore }}
+    </div>
+    <br/>
+     <div>
+      <h4>Benefit Plans</h4>
+      {{ benefitPlans }}
+    </div>
+    <br/>
+    <div>
+      <h4>Performance Review By Manager</h4>
+      {{ performanceReview }}
+     </div>
+  </div>
